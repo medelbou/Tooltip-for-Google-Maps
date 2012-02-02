@@ -1,13 +1,4 @@
 /*
-This a class to create a tooltip in Google Maps JavaScript API V3
-This is based on the example given in the Google Maps API documentation:
-http://code.google.com/apis/maps/documentation/javascript/overlays.html#CustomOverlays
-
-For comments/suggestions, email me at me[at]medelbou[dot]com
-*/
-
-
-/*
 Constructor for the tooltip
 @ param options an object containing: marker(required), content(required) and class(a css class, optional)
 @ see google.maps.OverlayView()
@@ -29,6 +20,15 @@ function Tooltip(options) {
 
     //Explicitly call setMap on this overlay
     this.setMap(this.map_);
+	var me = this;
+	// Show tooltip on mouseover event.
+	google.maps.event.addListener(me.marker_, 'mouseover', function() {
+		me.show();
+	});
+	// Hide tooltip on mouseout event.
+	google.maps.event.addListener(me.marker_, 'mouseout', function() {
+		me.hide();
+	});
 }
 // Now we extend google.maps.OverlayView()
 Tooltip.prototype = new google.maps.OverlayView();
