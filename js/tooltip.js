@@ -1,6 +1,6 @@
 /*
 Constructor for the tooltip
-@ param options an object containing: marker(required), content(required) and class(a css class, optional)
+@ param options an object containing: marker(required), content(required) and cssClass(a css class, optional)
 @ see google.maps.OverlayView()
 */
 
@@ -10,7 +10,7 @@ function Tooltip(options) {
     this.marker_ = options.marker;
     this.content_ = options.content;
     this.map_ = options.marker.get('map');
-	this.cssClass_ = options.class||null;
+	this.cssClass_ = options.cssClass||null;
 
     // We define a property to hold the content's
     // div. We'll actually create this div
